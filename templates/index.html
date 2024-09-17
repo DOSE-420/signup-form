@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div class="loader" id="loader"></div> <!-- Loader -->
+    <div class="container">
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <!-- Password strength indicator -->
+                <div class="password-strength-meter">
+                    <div id="password-strength-bar" class="password-strength-bar"></div>
+                </div>
+                <!-- End of password strength indicator -->
+
+                <button type="submit" href="#" onclick="showDialog()">Continue</button>
+                <div class="checkbox-text">By creating an account, you agree to our <a href="../templates/tos.html">Terms of Service</a> and <a href="#">Privacy Policy</a>.</div>
+
+                <p id="error-message"></p>
+                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            </form>
+            <script src="https://accounts.google.com/gsi/client" async></script>
+            <div id="g_id_onload"
+                data-client_id="YOUR_CLIENT_ID"
+                data-login_uri="https://yatri-23bc3.firebaseapp.com"
+                data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular"
+                data-logo_alignment="center">
+            </div>
+            <div id="appleid-signin" class="social-btn" data-color="white" data-border="false" data-type="sign in"></div>
+            <p>Already have an account? <a href="login.html"><b>Log In</b></a></p>
+        </div>
+        <section>
+            <button id="legal" onclick="showDialog()">Customer Login</button> 
+            <button id="individual" onclick="goToIndividualPage()">Admin Portal</button>
+        </section>
+    </div>
+
+    <!-- Cookie Consent Bar -->
+<div id="cookie-bar">
+    <p>This website uses cookies to ensure you get the best experience on our website. <a href="privacy.html">Learn more</a>.</p>
+    <button id="cookie-accept">Got it!</button>
+</div>
+
+    <!-- Dialog Overlay -->
+    <div id="dialog-overlay"></div>
+
+    <!-- Dialog Box -->
+    <div id="dialog">
+        <div id="dialog-bg">
+            <div id="dialog-title">Under Maintenance</div>
+            <div id="dialog-description">This site is currently under development. For updates regarding this site, please email us at: <b>tridentnepal@gmail.com</b></div>
+
+            <!-- Buttons -->
+            <div id="dialog-buttons">
+                <a href="#" class="large green button" onclick="goToLegalPage()">Continue</a>
+                <a href="#" class="large red button" onclick="closeDialog()">Return</a>
+            </div>
+        </div>    
+    </div>
+   
+    <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-auth.js"></script>
+    
+    <script src="signup.js"></script> <!-- Your sign-up JavaScript file -->
+
+    <script>
+        // Password strength checker
+        let password = document.getElementById("password"); 
+        let power = document.getElementById("password-strength-bar"); 
+        password.oninput = function () { 
+            let point = 0; 
+            let value = password.value; 
+            let widthPower =  
+                ["1%", "25%", "50%", "75%", "100%"]; 
+            let colorPower =  
+                ["#D73F40", "#DC6551", "#F2B84F", "#BDE952", "#3ba62f"]; 
+
+            if (value.length >= 6) { 
+                let arrayTest =  
+                    [/[0-9]/, /[a-z]/, /[A-Z]/, /[^0-9a-zA-Z]/]; 
+                arrayTest.forEach((item) => { 
+                    if (item.test(value)) { 
+                        point += 1; 
+                    } 
+                }); 
+            } 
+            power.style.width = widthPower[point]; 
+            power.style.backgroundColor = colorPower[point]; 
+        };
+
+        // Email validation function
+        let emailInput = document.getElementById("email");
+        emailInput.addEventListener("input", function() {
+            let email = emailInput.value;
+            let errorMessage = document.getElementById("error-message");
+            if (!email.endsWith(".com")) {
+                errorMessage.textContent = "Please enter a valid email address.";
+            } else {
+                errorMessage.textContent = "";
+            }
+        });
+
+        // Function to redirect to the legal person page
+        function goToLegalPage() {
+            window.location.href = "legal_person.html";
+        }
+
+        // Function to redirect to the individual page
+        function goToIndividualPage() {
+            window.location.href = "individual.html";
+        }
+
+        // Hide the loader once the page is fully loaded
+        window.addEventListener("load", function() {
+            document.getElementById("loader").style.display = "none";
+        });
+
+        // Function to show the dialog
+        function showDialog() {
+            document.getElementById('dialog').style.display = 'block';
+            document.getElementById('dialog-overlay').style.display = 'block';
+        }
+
+        // Function to close the dialog
+        function closeDialog() {
+            document.getElementById('dialog').style.display = 'none';
+            document.getElementById('dialog-overlay').style.display = 'none';
+        }
+    </script>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <script src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+    <script>
+        // Initialize the Apple Sign In button
+        AppleID.auth.init({
+            clientId : 'YOUR_APPLE_CLIENT_ID',
+            scope : 'email',
+            redirectURI: 'https://example.com', // Your redirect URI
+            state : 'state',
+            usePopup : true // or false if you want to use redirect
+        });
+    </script>
+
+<script>
+    // Function to check if the cookie consent has already been given
+    function hasCookieConsent() {
+        return document.cookie.split('; ').find(row => row.startsWith('cookieConsent='));
+    }
+
+    // Show the cookie bar if consent has not been given
+    function showCookieBar() {
+        document.getElementById('cookie-bar').style.display = 'block';
+    }
+
+    // Hide the cookie bar and set the cookie consent
+    function acceptCookies() {
+        document.cookie = "cookieConsent=true; max-age=" + 60*60*24*365 + "; path=/"; // Set cookie for 1 year
+        document.getElementById('cookie-bar').style.display = 'none';
+    }
+
+    // Initialize cookie bar on page load
+    window.onload = function() {
+        if (!hasCookieConsent()) {
+            showCookieBar();
+        }
+
+        document.getElementById('cookie-accept').addEventListener('click', acceptCookies);
+    };
+</script>
+
+
+
+
+</body>
+</html>

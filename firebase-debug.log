@@ -1,0 +1,76 @@
+[debug] [2024-05-16T22:12:11.351Z] ----------------------------------------------------------------------
+[debug] [2024-05-16T22:12:11.354Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ujjza\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-05-16T22:12:11.354Z] CLI Version:   13.9.0
+[debug] [2024-05-16T22:12:11.354Z] Platform:      win32
+[debug] [2024-05-16T22:12:11.355Z] Node Version:  v20.13.1
+[debug] [2024-05-16T22:12:11.355Z] Time:          Fri May 17 2024 03:57:11 GMT+0545 (Nepal Time)
+[debug] [2024-05-16T22:12:11.355Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-16T22:12:11.425Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-16T22:12:11.425Z] > authorizing via signed-in user (ujjzalshrestha@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\ujjza\OneDrive\Documents\Website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-05-16T22:12:25.715Z] Using project from CLI flag: yatri-23bc3
+[debug] [2024-05-16T22:12:25.717Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/yatri-23bc3 [none]
+[debug] [2024-05-16T22:12:27.837Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/yatri-23bc3 200
+[debug] [2024-05-16T22:12:27.837Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/yatri-23bc3 {"projectId":"yatri-23bc3","projectNumber":"604285935632","displayName":"Yatri","name":"projects/yatri-23bc3","resources":{"hostingSite":"yatri-23bc3","realtimeDatabaseInstance":"yatri-23bc3-default-rtdb","storageBucket":"yatri-23bc3.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_7978046e-94d4-46b4-8fe0-2c29fa285be4"}
+[info] i  Using project yatri-23bc3 (Yatri) 
+[info] 
+=== Functions Setup
+[debug] [2024-05-16T22:12:27.841Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-16T22:12:27.841Z] > authorizing via signed-in user (ujjzalshrestha@gmail.com)
+[debug] [2024-05-16T22:12:27.841Z] [iam] checking project yatri-23bc3 for permissions ["firebase.projects.get"]
+[debug] [2024-05-16T22:12:27.842Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/yatri-23bc3:testIamPermissions [none]
+[debug] [2024-05-16T22:12:27.842Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/yatri-23bc3:testIamPermissions x-goog-quota-user=projects/yatri-23bc3
+[debug] [2024-05-16T22:12:27.842Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/yatri-23bc3:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-05-16T22:12:30.145Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/yatri-23bc3:testIamPermissions 200
+[debug] [2024-05-16T22:12:30.145Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/yatri-23bc3:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-05-16T22:12:30.146Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-05-16T22:12:30.146Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/yatri-23bc3
+[debug] [2024-05-16T22:12:30.147Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-05-16T22:12:30.147Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/yatri-23bc3
+[debug] [2024-05-16T22:12:32.521Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/runtimeconfig.googleapis.com 200
+[debug] [2024-05-16T22:12:32.521Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-05-16T22:12:32.533Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com 200
+[debug] [2024-05-16T22:12:32.533Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-05-16T22:12:32.534Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-05-16T22:12:32.534Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/yatri-23bc3
+[debug] [2024-05-16T22:12:33.139Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-05-16T22:12:33.139Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-05-16T22:12:43.141Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-05-16T22:12:43.141Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/yatri-23bc3
+[debug] [2024-05-16T22:12:45.232Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com 200
+[debug] [2024-05-16T22:12:45.232Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/yatri-23bc3/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/package.json 
+[info] +  Wrote functions/.eslintrc.js 
+[info] +  Wrote functions/index.js 
+[info] +  Wrote functions/.gitignore 

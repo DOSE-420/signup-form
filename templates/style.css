@@ -1,0 +1,317 @@
+/* Minimalist design */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-image: url('../Website/assets/img/bg.jpg'); /* Replace 'background.jpg' with your image file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.checkbox-text {
+    opacity: 0.8; /* Adjust the opacity as needed */
+}
+
+.signin-button {
+    width: 210px;
+    height: 40px;
+}
+
+.social-btn {
+    position: relative;
+    width: 299px;
+    height: 35px;
+    border: 1px solid #c2c8d0;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 20px;
+    color: #2d333a;
+    margin-bottom: 8px;
+    display: flex;
+    outline: 0;
+}
+
+.google-signin-container {
+    margin-bottom: 20px; /* Add space below Google Sign-In container */
+}
+
+.signup-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Style for empty input fields */
+.empty-input {
+    border: 2px solid red !important; /* Important to override other styles */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="email"],
+input[type="password"],
+button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: normal;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+/* Hide the dialog and overlay initially */
+#dialog, #dialog-overlay {
+    display: none;
+}
+
+/* Style for the dialog overlay */
+#dialog-overlay {
+    position: fixed; /* Ensures the overlay covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 98; /* Ensures the overlay is below the dialog */
+}
+
+/* Style for the dialog box */
+#dialog {
+    position: fixed; /* Fixes the dialog in the viewport */
+    top: 50%; /* Positions the top of the dialog at 50% of the viewport height */
+    left: 50%; /* Positions the left of the dialog at 50% of the viewport width */
+    transform: translate(-50%, -50%); /* Centers the dialog by offsetting its own width and height */
+    width: 360px;
+    background-color: rgba(0,0,0,0.30); /* Semi-transparent background */
+    padding: 8px;
+    z-index: 99; /* Ensures the dialog is above the overlay */
+    border-radius: 9px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+/* Style for the dialog content background */
+#dialog-bg {
+    background-color: #FBFBFB;
+    width: 100%; /* Makes it fill the dialog */
+    height: 100%;
+    border-radius: 7px;
+    padding: 20px; /* Adds padding inside the dialog */
+    box-sizing: border-box; /* Ensures padding doesn't increase the width */
+}
+
+/* Adjust dialog title */
+#dialog-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #434343;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Adjust dialog description */
+#dialog-description {
+    font-size: 13px;
+    color: #555555;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Style for dialog buttons */
+#dialog-buttons {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 20px; /* Adds space between the buttons */
+}
+
+/* Common button styles */
+.button,
+.button:visited {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Specific styles for Continue and Return buttons */
+.green.button {
+    background-color: #72B930;
+}
+
+.green.button:hover {
+    background-color: #7DCA34;
+}
+
+.red.button {
+    background-color: #E64444;
+}
+
+.red.button:hover {
+    background-color: #FF4B5A;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+section button {
+    background-color: #bd1414;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+section button:hover {
+    background-color: #000000; /* Change to your desired hover color */
+}
+
+/* Add space between section buttons */
+section button + button {
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Password strength indicator */
+.password-strength-meter {
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.password-strength-bar.weak {
+    background-color: #ff6347;
+}
+
+.password-strength-bar.medium {
+    background-color: #ffae42;
+}
+
+.password-strength-bar.strong {
+    background-color: #20c997;
+}
+
+.google-signin-container {
+    transition: transform 0.3s ease-in-out;
+}
+
+.google-signin-container:hover {
+    transform: scale(1.1); /* Increase the size on hover */
+}
+
+/* Cookie Bar Styles */
+#cookie-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+#cookie-bar p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#cookie-bar a {
+    color: #f1c40f;
+    text-decoration: underline;
+}
+
+#cookie-bar button {
+    background-color: #f1c40f;
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#cookie-bar button:hover {
+    background-color: #e0b800;
+}
